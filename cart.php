@@ -29,6 +29,8 @@ function get_cart_item_details($item_id) {
 
 // Calculate cart total
 $total_price = 0;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -41,17 +43,15 @@ $total_price = 0;
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header with cart badge -->
-    <header class="header bg-light py-3 mb-4 shadow-sm">
-        <div class="container d-flex justify-content-between align-items-center">
-            <h1 class="h4 m-0">T-SHIRT SHOP</h1>
-            <a href="cart.php" class="cart-badge">
-                <i class="bi bi-cart"></i> Cart
-                <span class="cart-count"><?php echo $cart_count; ?></span>
-            </a>
-        </div>
+    <header class="header bg-light py-3 mb-4">
+            <div class="container d-flex justify-content-between align-items-center">
+                <h1 class="h4 m-0">T-SHIRT SHOP</h1>
+                <a href="cart.php" class="cart-badge">
+                    <i class="bi bi-cart"></i> Cart
+                    <span class="cart-count"><?php echo $cart_count; ?></span>
+                </a>
+            </div>
     </header>
-
     <div class="container">
         <h2 class="mb-4">Your Shopping Cart</h2>
         

@@ -12,30 +12,26 @@ $item_id = isset($_POST['id']) ? (int)$_POST['id'] : null;
 $size = isset($_POST['size']) ? $_POST['size'] : null;
 $quantity = isset($_POST['quantity']) ? (int)$_POST['quantity'] : 1;
 
-// Limit the quantity to a maximum of 99
-if ($quantity > 99) {
-    $quantity = 99; // Set the maximum quantity if exceeded
-}
-
-
 if ($item_id && $size) {
-    // Check if item is already in cart with the same size, update quantity if it exists
     $found = false;
     foreach ($_SESSION['cart'] as &$cart_item) {
         if ($cart_item['id'] === $item_id && $cart_item['size'] === $size) {
-            $cart_item['quantity'] += $quantity;  // Increment quantity if item exists
+            // Add quantity but cap the total at 99
+            $cart_item['quantity'] = min(99, $cart_item['quantity'] + $quantity);
             $found = true;
             break;
         }
     }
+
     if (!$found) {
-        // If item is not in cart, add it with the specified size and quantity
-        $_SESSION['cart'][] = ["id" => $item_id, "size" => $size, "quantity" => $quantity];
+        // If the item is new to the cart, ensure its quantity does not exceed 99
+        $_SESSION['cart'][] = ["id" => $item_id, "size" => $size, "quantity" => min(99, $quantity)];
     }
 }
 
 // Use the helper function to get the total item count in the cart
 $cart_count = get_cart_count();
+?>
 ?>
 
 <!DOCTYPE html>
@@ -48,20 +44,18 @@ $cart_count = get_cart_count();
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Section with updated cart count -->
-    <header class="header bg-light shadow-sm">
-        <div class="container d-flex justify-content-between align-items-center">
-            <h1 class="h4 m-0">T SHOP</h1>
-            <a href="cart.php" class="cart-badge">
-                <i class="bi bi-cart"></i> Cart
-                <span class="cart-count"><?php echo $cart_count; ?></span>
-            </a>
-        </div>
+    <header class="header bg-light py-3 mb-4">
+            <div class="container d-flex justify-content-between align-items-center">
+                <h1 class="h4 m-0">T-SHIRT SHOP</h1>
+                <a href="cart.php" class="cart-badge">
+                    <i class="bi bi-cart"></i> Cart
+                    <span class="cart-count"><?php echo $cart_count; ?></span>
+                </a>
+            </div>
     </header>
-
     <!-- Confirmation Message -->
     <div class="container mt-5 text-center">
-        <div class="alert alert-success py-5 rounded-3 shadow-sm">
+        <div class="alert alert-success rounded-3 shadow-sm">
             <i class="bi bi-check-circle-fill text-success mb-3" style="font-size: 3rem;"></i>
             <h2 class="fw-bold">Success!</h2>
             <p class="lead mt-3">Your product has been successfully added to the cart.</p>

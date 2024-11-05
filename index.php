@@ -110,7 +110,7 @@ foreach ($_SESSION['cart'] as $cart_item) {
         color: #d9534f;
     }
 
-    /* Full-width Add to Cart button overlay */
+
     .add-to-cart-overlay {
         position: absolute;
         bottom: 0;
@@ -127,7 +127,7 @@ foreach ($_SESSION['cart'] as $cart_item) {
     }
 
     .product-card:hover .add-to-cart-overlay {
-        transform: translateY(0); /* Slide up into view */
+        transform: translateY(0); 
     }
 
     .card-body {

@@ -53,15 +53,15 @@ if (isset($_SESSION['cart'])) {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 <body>
-<header class="py-3 bg-light shadow-sm">
-    <div class="container d-flex justify-content-between align-items-center">
-        <h1 class="h3 m-0">T SHOP</h1>
-        <a href="cart.php" class="cart-badge">
-            <i class="bi bi-cart"></i> Cart 
-            <span class="cart-count"><?php echo $cart_count; ?></span>
-        </a>
-    </div>
-</header>
+    <header class="header bg-light py-3 mb-4">
+            <div class="container d-flex justify-content-between align-items-center">
+                <h1 class="h4 m-0">T-SHIRT SHOP</h1>
+                <a href="cart.php" class="cart-badge">
+                    <i class="bi bi-cart"></i> Cart
+                    <span class="cart-count"><?php echo $cart_count; ?></span>
+                </a>
+            </div>
+    </header>
 
 <!-- Product Details Section -->
 <div class="container mt-5">
