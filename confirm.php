@@ -16,23 +16,23 @@ if ($item_id && $size) {
     $found = false;
     foreach ($_SESSION['cart'] as &$cart_item) {
         if ($cart_item['id'] === $item_id && $cart_item['size'] === $size) {
-            // Add quantity but cap the total at 99
-            $cart_item['quantity'] = min(99, $cart_item['quantity'] + $quantity);
+            // Add quantity but cap the total at 100
+            $cart_item['quantity'] = min(100, $cart_item['quantity'] + $quantity);
             $found = true;
             break;
         }
     }
 
     if (!$found) {
-        // If the item is new to the cart, ensure its quantity does not exceed 99
-        $_SESSION['cart'][] = ["id" => $item_id, "size" => $size, "quantity" => min(99, $quantity)];
+        // If the item is new to the cart, ensure its quantity does not exceed 100
+        $_SESSION['cart'][] = ["id" => $item_id, "size" => $size, "quantity" => min(100, $quantity)];
     }
 }
 
 // Use the helper function to get the total item count in the cart
 $cart_count = get_cart_count();
 ?>
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">

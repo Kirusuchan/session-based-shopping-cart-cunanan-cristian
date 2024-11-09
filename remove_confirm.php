@@ -25,7 +25,7 @@ if (!$item) {
     exit;
 }
 
-// Function to find the item details (assuming a global product array)
+
 function getItemDetails($id) {
     $products = [
         ["id" => 1, "name" => "Black and White Shirt", "price" => 550, "image" => "../imgs/v1B.png", "image_hover" => "../imgs/v1A.png", "description" => "A stylish black and white shirt for every occasion."],

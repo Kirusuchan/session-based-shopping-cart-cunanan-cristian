@@ -96,7 +96,7 @@ $total_price = 0;
                                 <td class="text-center">
                                     <input type="number" name="quantity[<?php echo $cart_item['id']; ?>]" 
                                         value="<?php echo $cart_item['quantity']; ?>" 
-                                        min="1" max="99" 
+                                        min="1" max="100" 
                                         class="form-control d-inline-block text-center" 
                                         style="width: 70px;">
                                 </td>

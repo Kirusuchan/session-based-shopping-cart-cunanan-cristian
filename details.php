@@ -89,7 +89,7 @@ if (isset($_SESSION['cart'])) {
                 </div>
 
                 <h4>Enter Quantity:</h4>
-                <input type="number" class="form-control w-25 mb-3" name="quantity" value="1" min="1" max="99">
+                <input type="number" class="form-control w-25 mb-3" name="quantity" value="1" min="1" max="100">
 
 
                 <button type="submit" class="btn btn-success"><i class="bi bi-check-circle"></i> Confirm Product Purchase</button>
